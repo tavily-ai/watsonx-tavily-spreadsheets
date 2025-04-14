@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900;
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    background-position: center center;
+  }
+
+  h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-variation-settings: normal;
+    font-weight: 500;
+    letter-spacing: -1px;
+    text-rendering: optimizeLegibility;
+    unicode-bidi: isolate;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+  }
+
+  p, span, div, li, a {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+  }
+
+  input {
+    font-family: "DM Sans", sans-serif;
+  }
+
+  button {
+    font-family: "DM Sans", sans-serif;
+  }
+
+  select {
+    font-family: "DM Sans", sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-gray-900/40 backdrop-blur-md border border-gray-700/50;
+  }
+}
+
+/* Spreadsheet Styles */
+.spreadsheet-container {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.spreadsheet-container table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.spreadsheet-container th,
+.spreadsheet-container td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s;
+  padding: 10px;
+  background-color: white;
+}
+
+.spreadsheet-container td:hover {
+  background-color: rgba(236, 245, 255, 0.9);
+}
+
+.spreadsheet-container th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-weight: 500;
+  color: #374151;
+  user-select: none;
+  padding: 12px 10px;
+}
+
+.spreadsheet-container tbody tr:hover td {
+  background-color: rgba(239, 246, 255, 0.9);
+}
+
+.spreadsheet-container td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.spreadsheet-container th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+}
+
+.spreadsheet-container .overflow-x-auto {
+  overflow-x: auto;
+  flex-grow: 1;
+  max-height: calc(70vh - 60px);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Animation for enriched cells */
+@keyframes enrichPulse {
+  0% { background-color: rgba(16, 185, 129, 0.05); }
+  50% { background-color: rgba(16, 185, 129, 0.1); }
+  100% { background-color: rgba(16, 185, 129, 0.05); }
+}
+
+.spreadsheet-container td div {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 2px 0;
+}
+
+.spreadsheet-container td[data-enriched="true"] {
+  animation: enrichPulse 2s ease-in-out;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Animation keyframes for floating gradient orbs */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-10px) translateX(10px); }
+  50% { transform: translateY(10px) translateX(-10px); }
+  75% { transform: translateY(5px) translateX(5px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(15px) translateX(-15px); }
+  66% { transform: translateY(-15px) translateX(10px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 15s ease-in-out infinite;
+}
+
+/* Enhanced styling for input fields */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(70, 139, 255, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.spreadsheet-container tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spreadsheet-container .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Button & control animations */
+.spreadsheet-container button,
+.spreadsheet-container label {
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.spreadsheet-container button:hover,
+.spreadsheet-container label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Spreadsheet corner radius styles */
+.first-cell {
+  border-top-left-radius: 0.75rem;
+}
+
+.last-header {
+  border-top-right-radius: 0.75rem;
+}
+
+.last-row-first-cell {
+  border-bottom-left-radius: 0.75rem;
+}
+
+.last-cell {
+  border-bottom-right-radius: 0.75rem;
+}
+
+/* Custom scrollbar for the spreadsheet */
+.spreadsheet-container .overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.spreadsheet-container .overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+  margin: 0 8px;
+}
+
+.spreadsheet-container .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.spreadsheet-container .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Cell focus effect */
+.spreadsheet-container td:focus-within {
+  box-shadow: inset 0 0 0 2px rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
