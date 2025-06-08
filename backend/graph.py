@@ -171,12 +171,12 @@ if __name__ == "__main__":
         )
     )
     watsonx_model = ModelInference(
-        model_id="ibm/granite-3-2-8b-instruct",
+        model_id="ibm/granite-3-3-8b-instruct",
         api_client=watsonx_client,
         project_id=os.getenv("WATSONX_PROJECT_ID"),
         params={
             "decoding_method": "greedy",
-            "max_new_tokens": 100,
+            "max_new_tokens": 200,
             "min_new_tokens": 0,
             "temperature": 0,
         },

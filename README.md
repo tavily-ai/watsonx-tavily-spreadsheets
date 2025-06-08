@@ -6,7 +6,7 @@
 </div>
 
 ## 🚀 Welcome to the Spreadsheet Enrichment Repository!
-This repository provides a powerful solution for building AI-enriched spreadsheets with real-time web access. The application combines [Tavily's](https://tavily.com/) advanced search capabilities with [IBM's watsonx.ai](https://www.ibm.com/products/watsonx-ai) foundation models, specifically the latest [`granite-3-2-8b-instruct`](https://www.ibm.com/granite) model, to transform your business spreadsheets with intelligent web-sourced information.
+This repository provides a powerful solution for building AI-enriched spreadsheets with real-time web access. The application combines [Tavily's](https://tavily.com/) advanced search capabilities with [IBM's watsonx.ai](https://www.ibm.com/products/watsonx-ai) foundation models, specifically the latest [`granite-3-3-8b-instruct`](https://www.ibm.com/granite) model, to transform your business spreadsheets with intelligent web-sourced information.
 
 
 ### Step 1: Fill in spreadsheet columns
@@ -60,7 +60,7 @@ This application requires API keys from the following services:
    WATSONX_URL=<your data center key>
    FOUNDATION_MODEL_ID=<watsonx.ai model id>
    ```
-   Note:  `FOUNDATION_MODEL_ID` environment variable is optional for FM selection from watsonx.ai platform. If left empty, the application will use `ibm/granite-3-2-8b-instruct` by default.
+   Note:  `FOUNDATION_MODEL_ID` environment variable is optional for FM selection from watsonx.ai platform. If left empty, the application will use `ibm/granite-3-3-8b-instruct` by default.
 
    b. Create a `.env.development` file in the `ui` directory with:
    ```bash
