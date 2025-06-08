@@ -52,15 +52,25 @@ class EnrichmentPipeline:
         try:
             query = f"{state.column_name} of {state.target_value}?"
             logger.info(f"Searching Tavily with query: {query}")
+
+            search_params = {
+                "query": query,
+                "search_depth": "advanced",
+                "max_results": 5,
+            }
+
+            if "stock" in query.lower():
+                search_params["topic"] = "finance"
+                logger.info("Added finance topic parameter due to 'stock' in query")
+            elif "news" in query.lower():
+                search_params["topic"] = "news"
+                logger.info("Added news topic parameter due to 'news' in query")
+
             result = await asyncio.to_thread(
-                lambda: self.tavily.search(
-                    query=query,
-                    search_depth="advanced",
-                    max_results=5,
-                )
+                lambda: self.tavily.search(**search_params)
             )
             logger.info("Tavily search completed")
-            # urls = [result["url"] for result in result["results"]]
+
             print(f"Tavily search result: {result}")
             return {"search_result": result}
         except Exception as e:
@@ -161,12 +171,12 @@ if __name__ == "__main__":
         )
     )
     watsonx_model = ModelInference(
-        model_id="ibm/granite-3-2-8b-instruct",
+        model_id="ibm/granite-3-3-8b-instruct",
         api_client=watsonx_client,
         project_id=os.getenv("WATSONX_PROJECT_ID"),
         params={
             "decoding_method": "greedy",
-            "max_new_tokens": 100,
+            "max_new_tokens": 200,
             "min_new_tokens": 0,
             "temperature": 0,
         },

@@ -64,7 +64,7 @@ This application requires API keys from the following services:
    WATSONX_URL=<your data center key>
    FOUNDATION_MODEL_ID=<watsonx.ai model id>
    ```
-   Note:  `FOUNDATION_MODEL_ID` environment variable is optional for FM selection from watsonx.ai platform. If left empty, the application will use `ibm/granite-3-2-8b-instruct` by default.
+   Note:  `FOUNDATION_MODEL_ID` environment variable is optional for FM selection from watsonx.ai platform. If left empty, the application will use `ibm/granite-3-3-8b-instruct` by default.
 
    b. Create a `.env.development` file in the `ui` directory with:
    ```bash

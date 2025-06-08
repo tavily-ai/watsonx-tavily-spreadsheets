@@ -71,13 +71,13 @@ def init_clients():
             )
             watsonx_model = ModelInference(
                 model_id=os.getenv(
-                    "FOUNDATION_MODEL_ID", "ibm/granite-3-2-8b-instruct"
+                    "FOUNDATION_MODEL_ID", "ibm/granite-3-3-8b-instruct"
                 ),
                 api_client=watsonx_client,
                 project_id=watsonx_project_id,
                 params={
                     "decoding_method": "greedy",
-                    "max_new_tokens": 100,
+                    "max_new_tokens": 200,
                     "min_new_tokens": 0,
                     "temperature": 0,
                 },
