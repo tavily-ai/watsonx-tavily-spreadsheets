@@ -6,7 +6,11 @@
 </div>
 
 ## 🚀 Welcome to the Spreadsheet Enrichment Repository!
-This repository provides a powerful solution for building AI-enriched spreadsheets with real-time web access. The application combines [Tavily's](https://tavily.com/) advanced search capabilities with [IBM's watsonx.ai](https://www.ibm.com/products/watsonx-ai) foundation models, specifically the latest [`granite-3-3-8b-instruct`](https://www.ibm.com/granite) model, to transform your business spreadsheets with intelligent web-sourced information.
+This repository offers two key resources to help watsonx developers enhance their AI agents with web access:
+
+1. A three step [tutorial series](./tutorials/README.md) for building research agents with web access and watsonx.
+
+2. An end-to-end solution for building AI-enriched spreadsheets with real-time web access. The application combines [Tavily's](https://tavily.com/) advanced search capabilities with [IBM's watsonx.ai](https://www.ibm.com/products/watsonx-ai) foundation models, specifically the latest [`granite-3-2-8b-instruct`](https://www.ibm.com/granite) model, to transform your business spreadsheets with intelligent web-sourced information.
 
 
 ### Step 1: Fill in spreadsheet columns
