@@ -6,4 +6,4 @@ tavily_python==0.5.1
 python-multipart==0.0.22
 httpx==0.28.1
 ibm-watsonx-ai==1.3.6
-langgraph==0.3.29
+langgraph==1.0.10rc1
